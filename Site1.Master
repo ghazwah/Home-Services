@@ -1,0 +1,182 @@
+﻿<%@ Master Language="C#"   AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="HomeService.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+
+    <%--bootstrap css--%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--datatables css--%>
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%--fontawesome css--%>
+    <link href="fontawesome/fontawesome/css/all.css" rel="stylesheet" />
+    <%--jquery--%>
+    <script src="bootstrap/js/jquery-3.4.1.slim.min.js"></script>
+    <%--popper js--%>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <%--bootstrap js--%>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <%--Datatables js--%>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Home Services</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    
+    <link href="assets/img/favicon.ico" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Lato:400,300,700,900" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+    
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            margin-right: 180px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+        
+         <!-- Main Content Placeholder -->
+      
+        
+    <div id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+
+            
+
+      <div class="logo me-auto">
+            <!-- Uncomment below if you prefer to use an image logo -->
+         
+<%--         <a href="Home.aspx"><img src="assets/img/favicon.ico" alt="" class="img-fluid"></a>--%>
+        <h1 style="font-style: normal; color: #FFFFFF"><a href="Home.aspx"><asp:Localize ID="Localize2" meta:resourceKey="HomeServices" Text="Home Services" runat="server"></asp:Localize></a></h1>
+      
+         
+      </div>
+
+             
+      <nav id="navbar" class="navbar">
+          <ul>
+              <li><a class="nav-link scrollto active" href="Home.aspx">
+              <asp:Localize ID="Localize1" meta:resourceKey="Home" Text="Home" runat="server"></asp:Localize></a></li>
+              <asp:LinkButton ID="linkAboutUs" class="nav-link scrollto" runat="server" meta:resourceKey="lbtnAbout" href="#about">About Us</asp:LinkButton>
+              <asp:LinkButton ID="linkServices" class="nav-link scrollto" runat="server" Visible="True" meta:resourceKey="lbtnServices" href="#services">Services</asp:LinkButton>
+              <li class="dropdown"> <asp:LinkButton ID="linkServicesddl" class="bi bi-chevron-down"  runat="server" Visible="False" meta:resourceKey="lbtnServicesddl" href="#services"> Services </asp:LinkButton>
+                  <ul>
+                      <li><a href="maidService.aspx"> <asp:Localize ID="Localize3" meta:resourceKey="lbtnMaids" Text="Maids Services" runat="server"></asp:Localize></a></li>
+                      <li><a href="baby.aspx"> <asp:Localize ID="Localize4" meta:resourceKey="lbtnBabysitters" Text="Babysitters Services" runat="server"></asp:Localize></a></li>
+                      <li><a href="driver.aspx"> <asp:Localize ID="Localize5" meta:resourceKey="lbtnDrivers" Text="Drivers Services" runat="server"></asp:Localize></a></li>
+                  </ul>
+              </li>
+              <asp:LinkButton ID="linkPortfolio" class="nav-link scrollto" runat="server" meta:resourceKey="lbtnPortfolio" href="#portfolio">Portfolio</asp:LinkButton>
+              <asp:LinkButton ID="linkTeam" class="nav-link scrollto" runat="server" meta:resourceKey="lbtnTeam" href="#team">Team</asp:LinkButton>
+              <asp:LinkButton ID="linkContactUs" class="nav-link scrollto" runat="server" meta:resourceKey="lbtnContactUs" href="#contact">Contact Us</asp:LinkButton>
+
+              <asp:LinkButton class="nav-link scrollto" ID="linkManage" runat="server" AssociatedControlID="linkManage" Visible="False" OnClick="linkManage_Click" meta:resourcekey="linkManageResource1">Manage</asp:LinkButton>
+              <asp:LinkButton class="nav-link scrollto" ID="linkLogIn" runat="server" OnClick="linkLogIn_Click" meta:resourcekey="linkLogInResource1">Log In</asp:LinkButton>
+              <asp:LinkButton class="nav-link scrollto" ID="linkSignup" runat="server" OnClick="linkSignup_Click" meta:resourcekey="linkSignupResource1">Sign Up</asp:LinkButton>
+              <asp:LinkButton class="nav-link scrollto" ID="linkLogout" runat="server" Visible="False" OnClick="linkLogout_Click" meta:resourcekey="linkLogoutResource1">Log Out</asp:LinkButton>
+              <asp:LinkButton class="nav-link scrollto" ID="linkMsg" runat="server" Visible="False" ForeColor="#0099FF" OnClick="linkMsg_Click" meta:resourcekey="linkMsgResource1">Hello user</asp:LinkButton>
+              <li style="margin-left:7%">
+              <asp:LinkButton class="nav-link scrollto" ID="lbtnEnglish" runat="server" OnClick="lbtn_Click" ForeColor="#a9d9cf" meta:resourceKey="lbtnEnglish"> English </asp:LinkButton>
+              <asp:LinkButton class="nav-link scrollto" ID="lbtnArabic" runat="server" OnClick="lbtn_Click" ForeColor="#a9d9cf" meta:resourceKey="lbtnArabic"> Arabic </asp:LinkButton>
+              </li>
+          </ul>
+            
+          <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+     </div>
+     </div>
+
+       
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+        </asp:ContentPlaceHolder>
+
+
+                 
+       
+
+
+        
+    
+
+        <!-- Main Content Placeholder -->
+
+         <!-- ======= Footer ======= -->
+           
+         <footer id="footer">
+            <div class="container">
+              
+                <div class="credits">
+
+                             
+                             <asp:LinkButton class="footerlinks" ID="linkMaidManagement" href="maidManagement.aspx" runat="server" Visible="False" OnClick="linkMaidManagement_Click" meta:resourcekey="linkMaidManagementResource1" >Maid Management</asp:LinkButton>
+                             &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="linkBabysitterManagement" href="babySitterManagement.aspx" runat="server" Visible="False" OnClick="linkBabysitterManagement_Click" meta:resourcekey="linkBabysitterManagementResource1"  >Babysitter Management</asp:LinkButton>
+                             &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="linkDriverManagement" href="driverManagement.aspx" runat="server" Visible="False" OnClick="linkDriverManagement_Click" meta:resourcekey="linkDriverManagementResource1">Driver Management</asp:LinkButton>
+                             &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="linkFilesManagement" href="uploadFiles.aspx" runat="server" Visible="False" OnClick="linkFilesManagement_Click" meta:resourcekey="linkFilesManagementResource1"  >Services Files</asp:LinkButton>
+                          
+                             
+                       
+                </div>
+                <br />
+                  <div class="copyright">
+                    &copy; Copyright <strong><span>KFMC</span></strong>. All Rights Reserved
+                </div>
+
+            </div>
+        </footer>
+        <!-- End #footer -->
+
+
+       
+
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+    </form>
+
+
+   
+</body>
+</html>
